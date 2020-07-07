@@ -14,17 +14,17 @@
 #define XSTR(s) STR(s)
 #define SIZE 30
 
-//Cellule d'une liste simplement chaînée de noms de personnes
+//Cellule d'une liste simplement chaÃ®nÃ©e de noms de personnes
 typedef struct  Cellule
-{ char NomP[20];  // nom de personne (les noms de personnes sont suppos és distincts)
+{ char NomP[20];  // nom de personne (les noms de personnes sont suppos Ã©s distincts)
   struct Cellule * PP ;    // pointeur sur la personne suivante inscrite
 } Cellule;
 
 //Cahier des inscriptions
 typedef struct Cahier
 {
- char NomA[30];// nom d'activité (les activités sont supposées distinct es)
- struct Cellule * LP ; // donne accès à l’adresse de tête de la liste chaînée des personnes inscrites  à cette activité
+ char NomA[30];// nom d'activitÃ© (les activitÃ©s sont supposÃ©es distinct es)
+ struct Cellule * LP ; // donne accÃ¨s Ã  lâ€™adresse de tÃªte de la liste chaÃ®nÃ©e des personnes inscrites  Ã  cette activitÃ©
 } Cahier;
 
 typedef struct Dossier
@@ -35,27 +35,27 @@ typedef struct Dossier
 
 void RemplissageAutomatique(Dossier *D)
 {
-//Tableau des activités à insérer dans l e dossier
+//Tableau des activitÃ©s Ã  insÃ©rer dans l e dossier
 char tabAct[3][20]={"Lecture","Jeu d'echecs","Tennis"};
 
-// Tableau des personnes inscrites à l’activité 1 "Lecture"
+// Tableau des personnes inscrites Ã  lâ€™activitÃ© 1 "Lecture"
 char PerA1[3][10]={"Wadii","Youssef","Asma"};
 
-//Tableau des personnes inscrites à l’activité 2 "Jeu d'echecs"
+//Tableau des personnes inscrites Ã  lâ€™activitÃ© 2 "Jeu d'echecs"
 char PerA2[3][10]={"Nour","Mohamed","Emir"};
 
-// Tableau des personnes inscrites à l’activité 3 "Tennis"
+// Tableau des personnes inscrites Ã  lâ€™activitÃ© 3 "Tennis"
 char PerA3[3][10]={"Wadii","Aziz","Sarra"};
 
 int i; Cellule * cel;
 D->NbC=0;
 
-//Ajout de l'activité 1
+//Ajout de l'activitÃ© 1
 strcpy(D->TC[0].NomA,tabAct[0]);
 D->NbC++;
 D->TC[0].LP=NULL;
 
-//Insertion des personnes à l'activité 1. La nouvelle personne est insérée au débu t de liste.
+//Insertion des personnes Ã  l'activitÃ© 1. La nouvelle personne est insÃ©rÃ©e au dÃ©bu t de liste.
 for(i=2;i>=0;i--)
 { cel = (Cellule*)malloc(sizeof(Cellule));
 if (cel == NULL)
@@ -67,11 +67,11 @@ D->TC[0].LP = cel;
 }
 }
 
-//Ajout de l'activité 2
+//Ajout de l'activitÃ© 2
 strcpy(D->TC[1].NomA,tabAct[1]);
 D->NbC++;
 D->TC[1].LP=NULL;
-//Insertion des personnes à l'activité 2. La nouvelle personne est insérée au débu t de liste.
+//Insertion des personnes Ã  l'activitÃ© 2. La nouvelle personne est insÃ©rÃ©e au dÃ©bu t de liste.
 for(i=2;i>=0;i--)
 { cel = (Cellule*)malloc(sizeof(Cellule));
 if (cel == NULL)
@@ -84,12 +84,12 @@ D->TC[1].LP = cel;
 }
 
 
-//Ajout de l'activité 3
+//Ajout de l'activitÃ© 3
 strcpy(D->TC[2].NomA,tabAct[2]);
 D->NbC++;
 D->TC[2].LP=NULL;
 
-//Insertion des personnes à l'activité 3. La nouvelle personne est insérée au débu t de liste.
+//Insertion des personnes Ã  l'activitÃ© 3. La nouvelle personne est insÃ©rÃ©e au dÃ©bu t de liste.
 for(i=2;i>=0;i--)
 { cel = (Cellule*)malloc(sizeof(Cellule));
 if (cel == NULL)
@@ -171,7 +171,7 @@ void AjouterPersonne (char NP[20], Cellule *T)
       T->PP = cel;
     }   
     printf("inscription valider \n ");
-	
+    free(cel);
 }
 
 // AJOUT D'UN NOUVEAU CAHIER D'INSCRIPTION
@@ -203,7 +203,7 @@ void AjouterCahier (Dossier *D, char NP[20], char NA[30])
 	}
 }
 
-//  INSCRIPTION D’UNE PERSONNE A UNE ACTIVITE
+//  INSCRIPTION Dâ€™UNE PERSONNE A UNE ACTIVITE
 void AjouterInscription (Dossier *D, char NP[20], char NA[30])
 {
 	int numActivite = RechercheActivite(*D,NA);
@@ -243,7 +243,7 @@ void AfficherDossier (Dossier D, char NA[30])
 }
 
 
-//  SUPPRESSION D’UNE PERSONNE
+//  SUPPRESSION Dâ€™UNE PERSONNE
 void SupprimerPersonne (Dossier *D, char NP[20], char NA[30])
 {
 	int numActivite = RechercheActivite(*D,NA);
@@ -327,11 +327,11 @@ int main()
     // la variable option est utiliser pour selection les choix.
     unsigned int Option = 0; 
     
-    // declaration de variable pour recuprer le nom et l'activité.
+    // declaration de variable pour recuprer le nom et l'activitÃ©.
     char *nom;
     char *activite;
     
-    // Boucle ce répete tantque on a pas choisi l'option 6(Quitter).
+    // Boucle ce rÃ©pete tantque on a pas choisi l'option 6(Quitter).
     while( Option != 6 ){
     	
     	printf("\n\n       --- MENU ---    \n");
