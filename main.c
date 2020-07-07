@@ -418,6 +418,7 @@ int main()
         	printf("\n Quitter !") ;
         	Option=6;
         }
+	    sleep(1);
 	}
     
     return 0;
